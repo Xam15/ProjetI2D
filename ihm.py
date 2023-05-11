@@ -2,7 +2,10 @@ nb_planches = 10
 
 
 def calculPluviometrie(quantite_eau, taille_planche, debit, pression):
-    print("")
+    print(quantite_eau, taille_planche)
+    taille_planche["largeur * longueur"][0] = planche
+    quantite_eau["humidite * taille"][1] = humidite
+    quantite_manquante["15 * taille - humidite * taille"][2] = quantite_manquante
     temps = 0
     return temps
 
@@ -10,6 +13,8 @@ def calculPluviometrie(quantite_eau, taille_planche, debit, pression):
 # planche = {"etat": False, "taille": [0, 0], "humidite": [], "temps_arrosage": []}  # dictionnaire
 
 planches = {"0": {"etat": False, "taille": [0, 0], "humidite": [], "temps_arrosage": []}, "1": {"etat": False, "taille": [0, 0], "humidite": [], "temps_arrosage": []}}
+humidite = {"eau_restant": [0]}
+quantite_manquante = {"eau_a_mettre"[0]}
 
 
 def lireCapteursPlanche(numero_planche):
@@ -48,3 +53,16 @@ if __name__ == "__main__":
                 setTaillePlanche(int(res), float(largeur), float(longueur))
             if (val == "5"):
                 print(planches)
+            if (val == "2"):
+                planche_taille = input("largeur * longueur : ")
+                print(planche_taille)
+                humidite = input("humidite * taille : ")
+                print(humidite)
+                quantite_manquante = input("15 * taille - humidite * taille : ")
+                print(quantite_manquante)
+                calculPluviometrie(int(res), float(planche_taille), float(humidite), float(quantite_manquante))
+
+
+
+
+
