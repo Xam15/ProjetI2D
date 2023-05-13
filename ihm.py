@@ -19,12 +19,14 @@ quantite_manquante = {"eau_a_mettre"[0]}
 
 def lireCapteursPlanche(numero_planche):
     etat = False
+    capteur.measure()
     humidite = 0
+    print("Humidite    : {capteur.humidity():.1}")
     return etat, humidite
 
 
 def capteursPompe():
-    debit = 4  # m3/h
+    debit = 0.015*["taille"]
     pression = 4
     return debit, pression
 
@@ -54,13 +56,22 @@ if __name__ == "__main__":
             if (val == "5"):
                 print(planches)
             if (val == "2"):
+                input("lireCapteursPlanche : ")
                 planche_taille = input("largeur * longueur : ")
                 print(planche_taille)
                 humidite = input("humidite * taille : ")
                 print(humidite)
-                quantite_manquante = input("15 * taille - humidite * taille : ")
+                quantite_manquante = input("0.015 * taille - humidite * taille : ")
                 print(quantite_manquante)
                 calculPluviometrie(int(res), float(planche_taille), float(humidite), float(quantite_manquante))
+            if calculPluviometrie < 0.015 :
+                capteursPompe = quantite_manquante
+                capteursPompe == 1
+            else :
+                capteursPompe == 0
+
+
+
 
 
 
